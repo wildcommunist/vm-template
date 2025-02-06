@@ -31,12 +31,6 @@ console() {
   echo -e "${C_MSG_DT}${C_MSG}"
 }
 
-# Check for root
-if [ "$EUID" -ne 0 ]; then
-  console "Please run as root" "err"
-  exit
-fi
-
 docker_install() {
   console "Installing docker"
   curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
@@ -77,8 +71,8 @@ nvm_install() {
 
 python_install() {
   console "Installing python3.10"
-  sudo apt install python3.10-venv
-  sudo apt install python-is-python3
+  sudo apt install python3.10-venv -y
+  sudo apt install python-is-python3 -y
   curl https://bootstrap.pypa.io/get-pip.py | python
 }
 
