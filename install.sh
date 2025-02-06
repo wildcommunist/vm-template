@@ -85,8 +85,8 @@ start() {
   common
   docker_install
   compose_install
-  nvm_install
   python_install
+  nvm_install
 }
 
 start
