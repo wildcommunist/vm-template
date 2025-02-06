@@ -51,7 +51,7 @@ docker_install() {
   console "Docker installed"
 }
 
-compose() {
+compose_install() {
   console "Installing docker compose"
   mkdir -p ~/.docker/cli-plugins/
   VER=$(curl -s https://api.github.com/repos/docker/compose/releases/latest | grep tag_name | cut -d '"' -f 4)
@@ -61,7 +61,7 @@ compose() {
   console "Docker compose installed"
 }
 
-nvm() {
+nvm_install() {
   console "Installing node version manager and PM2"
   sudo apt install curl -y
   curl https://raw.githubusercontent.com/creationix/nvm/master/install.sh | bash
@@ -75,7 +75,7 @@ nvm() {
   console "Installed nvm, node and pm2"
 }
 
-python() {
+python_install() {
   console "Installing python3.10"
   sudo apt install python3.10-venv
   sudo apt install python-is-python3
@@ -90,9 +90,9 @@ common() {
 start() {
   common
   docker_install
-  compose
-  nvm
-  python
+  compose_install
+  nvm_install
+  python_install
 }
 
 start
